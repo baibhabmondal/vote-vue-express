@@ -54,7 +54,7 @@
                     alert("Enter Valid data")
                     return;
                 }
-                let resp = await axios.post(`http://localhost:3000/api/edit/user/${this.user._id}`, {
+                let resp = await axios.post(`/api/edit/user/${this.user._id}`, {
                     'username': this.username,
                     'password': this.password,
                     'name': this.name

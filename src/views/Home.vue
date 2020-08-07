@@ -78,6 +78,7 @@
   .add_button {
     position: absolute;
     bottom: 50px;
+    z-index: 999;
     right: 50px;
   }
 </style>
@@ -112,7 +113,7 @@
     methods: {
       async getData() {
         try {
-          const resp = await axios.get(`http://localhost:3000/api/users`);
+          const resp = await axios.get(`/api/users`);
           console.log(resp.data);
           this.users = [...(resp.data.data)];
         } catch (e) {
@@ -120,14 +121,14 @@
         }
       },
       async vote(id) {
-        const resp = await axios.post(`http://localhost:3000/api/vote/${this.me._id}`, {'voter_id': id});
+        const resp = await axios.post(`/api/vote/${this.me._id}`, {'voter_id': id});
         if(resp.data.success == true)
           alert("vote successfull")
         else
           alert("could not vote this moment..try again later.")
       },
       async del(id) {
-        const resp = await axios.post(`http://localhost:3000/api/delete/${id}`, {'id': this.me._id});
+        const resp = await axios.post(`/api/delete/${id}`, {'id': this.me._id});
         if(resp.data.success == true)
           alert("vote successfull")
         else
@@ -145,7 +146,7 @@
           'no_of_challenges': parseInt(this.add_challenges),
           'password': this.add_password
         }
-        let resp = await axios.post(`http://localhost:3000/api/user`, temp)
+        let resp = await axios.post(`/api/user`, temp)
         if(resp.data.success)
           this.dialog = false;
         else

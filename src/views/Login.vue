@@ -42,7 +42,7 @@ export default {
                 alert("Enter Valid data")
                 return;
             }
-            let resp = await axios.post(`http://localhost:3000/api/login`, {
+            let resp = await axios.post(`/api/login`, {
                 'username': this.username,
                 'password': this.password
             })

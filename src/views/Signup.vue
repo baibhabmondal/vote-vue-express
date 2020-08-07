@@ -40,7 +40,7 @@
                     alert("Enter Valid data")
                     return;
                 }
-                let resp = await axios.post(`http://localhost:3000/api/user`, {
+                let resp = await axios.post(`/api/user`, {
                     'username': this.username,
                     'password': this.password,
                     'name': this.name
