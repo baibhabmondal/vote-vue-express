@@ -22,12 +22,12 @@ mongoose.connect('mongodb://baibhab:pass1234@ds163701.mlab.com:63701/coda-fullst
 
 
 
-// //here we are configuring dist to serve app files
-// app.use('/', serveStatic(path.join(__dirname, '/dist')))
-// // this * route is to serve project on different page routes except root `/`
-// app.get(/.*/, function (req, res) {
-//     res.sendFile(path.join(__dirname, '/dist/index.html'))
-// })
+//here we are configuring dist to serve app files
+app.use('/', serveStatic(path.join(__dirname, '/dist')))
+// this * route is to serve project on different page routes except root `/`
+app.get(/.*/, function (req, res) {
+    res.sendFile(path.join(__dirname, '/dist/index.html'))
+})
 
 const port = process.env.PORT || 3000
 app.listen(port)
